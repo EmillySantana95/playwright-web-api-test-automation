@@ -1,29 +1,73 @@
 # Playwright Web & API Test Automation
 
-Projeto de automação de testes Web e API utilizando Playwright com JavaScript,
-com foco em boas práticas, escalabilidade e qualidade de software.
+[![Node.js](https://img.shields.io/badge/Node.js-18.x-green)](https://nodejs.org/) 
+[![Playwright](https://img.shields.io/badge/Playwright-1.57-blue)](https://playwright.dev/) 
+[![Status](https://img.shields.io/badge/Status-Passing-brightgreen)]()
 
-## Tecnologias
-- Playwright
-- JavaScript
-- Node.js
+## 🚀 Sobre o projeto
+Este projeto é um framework de automação de testes utilizando **Playwright**, abrangendo **UI** e **API**. O objetivo é demonstrar boas práticas em automação, como testes paralelos, geração de relatórios e organização de projetos por **diretórios de testes**.
 
-## Tipos de Teste
-- UI (Web)
-- API
-- E2E
+O foco principal é:
 
-## Como executar
+- Testes de interface web (UI) em múltiplos navegadores
+- Testes de API (GET, POST, PUT, DELETE)
+- Relatórios automáticos em HTML
+- Execução paralela de testes
+
+---
+
+## 🛠 Tecnologias e Ferramentas
+- **Node.js** v18+
+- **Playwright** 1.57
+- **json-server** (para APIs locais)
+- **VS Code** ou outro editor de código
+- **Git** e **GitHub**
+
+---
+
+## 📂 Estrutura do Projeto
+playwright-web-api-test-automation/
+│
+├─ tests/
+│ ├─ api/ → Testes de API
+│ └─ ui/ → Testes de interface
+│
+├─ playwright.config.js
+├─ package.json
+└─ README.md
+
+---
+
+## ⚡ Funcionalidades
+
+### Testes UI
+- Acessam páginas públicas (ex.: [The Internet](https://the-internet.herokuapp.com))
+- Executam ações como clicar, preencher campos, validar elementos
+- Rodam em **Chromium, Firefox e WebKit**
+
+### Testes API
+- Testam endpoints públicos (ex.: [JSONPlaceholder](https://jsonplaceholder.typicode.com))
+- Suportam métodos: **GET, POST, PUT, DELETE**
+- Validação de status e conteúdo das respostas
+- Execução de testes **paralelos**
+
+---
+
+## 🏃 Como Rodar
+
+### Instalar dependências
+```bash
 npm install
-npm run test
 
-## Técnicas de Teste Aplicadas
-- Particionamento de Equivalência
-- Cenários Positivos e Negativos
+### Rodar todos os testes
+npx playwright test
 
-## Boas Práticas
-- Page Object Model
-- Separação de responsabilidades
-- Auto-waiting do Playwright
+### Rodar testes de UI
+npx playwright test tests/ui
 
+### Rodar testes de API
+npx playwright test tests/api
+
+### Abrir relatório
+npx playwright show-report
 
