@@ -56,7 +56,6 @@ playwright-web-api-test-automation/
 ## 🏃 Como Rodar
 ```bash
 ### Instalar dependências
-
 npm install
 
 ### Rodar todos os testes
