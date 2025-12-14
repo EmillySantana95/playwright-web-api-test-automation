@@ -40,7 +40,7 @@ playwright-web-api-test-automation/
 
 ### Testes UI
 - Acessam páginas públicas (ex.: [The Internet](https://the-internet.herokuapp.com))
-- Executam ações como clicar, preencher campos, validar elementos
+- Executam ações na página de login
 - Rodam em **Chromium, Firefox e WebKit**
 
 ### Testes API
