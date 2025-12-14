@@ -27,14 +27,12 @@ O foco principal é:
 
 ## 📂 Estrutura do Projeto
 playwright-web-api-test-automation/
-│
-├─ tests/
-│ ├─ api/ → Testes de API
-│ └─ ui/ → Testes de interface
-│
-├─ playwright.config.js
-├─ package.json
-└─ README.md
+├── tests/
+│ ├── api/ → Testes de API
+│ └── ui/ → Testes de interface
+├── playwright.config.js
+├── package.json
+└── README.md
 
 ---
 
