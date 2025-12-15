@@ -1,25 +1,43 @@
 const { test, expect } = require('@playwright/test');
+const { LoginPage } = require('../pages/LoginPage');
 
 test.describe('Login', () => {
+
   test('Login com credenciais válidas', async ({ page }) => {
-    await page.goto('/login');
-    await page.fill('#username', 'tomsmith');
-    await page.fill('#password', 'SuperSecretPassword!');
-    await page.click('button[type="submit"]');
-    await expect(page.locator('#flash')).toContainText('You logged into a secure area!');
+    const loginPage = new LoginPage(page);
+
+    await loginPage.acessar();
+    await loginPage.login(
+      process.env.LOGIN_USER,
+      process.env.LOGIN_PASSWORD
+    );
+
+    await expect(page.locator(loginPage.errorMessage))
+      .toContainText('You logged into a secure area!');
   });
 
   test('Login com credenciais inválidas', async ({ page }) => {
-    await page.goto('/login');
-    await page.fill('#username', 'wrong');
-    await page.fill('#password', 'wrong');
-    await page.click('button[type="submit"]');
-    await expect(page.locator('#flash')).toContainText('Your username is invalid!');
+    const loginPage = new LoginPage(page);
+
+    await loginPage.acessar();
+    await loginPage.login(
+      'usuario_invalido',
+      'senha_invalida'
+    );
+
+    await expect(page.locator(loginPage.errorMessage))
+      .toContainText('Your username is invalid!');
   });
 
   test('Campos obrigatórios', async ({ page }) => {
-    await page.goto('/login');
-    await page.click('button[type="submit"]');
-    await expect(page.locator('#flash')).toContainText('Your username is invalid!');
+    const loginPage = new LoginPage(page);
+
+    await loginPage.acessar();
+    await page.click(loginPage.loginButton);
+
+    await expect(page.locator(loginPage.errorMessage))
+      .toContainText('Your username is invalid!');
   });
 });
+
+
